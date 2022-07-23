@@ -21,6 +21,7 @@ body {
         font-size: 12px;
         background: #fff;
         color: #5e5e72;
+        cursor: pointer;
     }
     .tab_active {
         background: #5e5e72;
@@ -79,24 +80,109 @@ body {
                 }
                 .dropdown-block {
                     display: flex;
+                    flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
-                    .name {
-                        font-weight: 400;
-                        font-size: 14px;
-                    }
-                    .dropdown__name {
-                    }
-                    .dropdown__btn {
+                    position: relative;
+                    .dropdown {
+                        position: relative;
                         display: flex;
                         align-items: center;
-                        justify-content: center;
-                        width: 20px;
-                        height: 20px;
-                        background: #47C6CE;
-                        .svg {
-                            fill: #fff;
+                        justify-content: space-between;
+                        width: 100%;
+                        .dropdown__name {
                         }
+                        .name {
+                            font-weight: 400;
+                            font-size: 14px;
+                        }
+                        .dropdown__btn {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 20px;
+                            height: 20px;
+                            background: #47C6CE;
+                            cursor: pointer;
+                            .svg {
+                                fill: #fff;
+                            }
+                        }
+                    }
+                    .dropdown__text {
+                        display: none;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        background: #fff;
+                        width: 20px;
+                        .text {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 12px;
+                            color: #5e5e72;
+                            width: 20px;
+                            height: 20px;
+                            cursor: pointer;
+                        }
+                        .checkbox-block {
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            width: 100%;
+                            background: #fff;
+                            .checkbox__input {
+                                appearance: none;
+                                margin: 0;
+                            }
+                            .checkbox__label {
+                                display: flex;
+                                align-items: center;
+                                font-size: 12px;
+                                width: 100%;
+                                height: 20px;
+                                padding-left: 5px;
+                                color: #5e5e72;
+                                cursor: pointer;
+                                &::after {
+                                    position: absolute;
+                                    right: 0;
+                                    display: flex;
+                                    content: '';
+                                    width: 20px;
+                                    height: 20px;
+                                    background: #47C6CE;
+                                }
+                                &::before {
+                                    position: absolute;
+                                    right: 4px;
+                                    z-index: 2;
+                                    display: flex;
+                                    content: '';
+                                    width: 12px;
+                                    height: 12px;
+                                    background: url(../img/checkmark.svg);
+                                    opacity: 0;
+                                }
+                            }
+                            .checkbox__input:checked + .checkbox__label::before {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    .dropdown__text_right {
+                        align-self: flex-end;
+                    }
+                    .dropdown__text_width {
+                        width: 100%;
+                        & > * {
+                            margin-top: 5px;
+                        }
+                        background: transparent;
+                    }
+                    .dropdown__text_show {
+                        display: flex;
                     }
                 }
             }
@@ -110,6 +196,7 @@ body {
                 background: #fff;
                 color: #5e5e72;
                 box-shadow: 1px 2px 3px rgba(0, 0, 0, .15);
+                cursor: pointer;
             }
         }
     }
@@ -124,7 +211,9 @@ body {
             margin-bottom: 15px;
         }
         .title {
+            display: block;
             font-weight: 400;
+            margin-left: 5px;
         }
         .calorie {
             display: block;
